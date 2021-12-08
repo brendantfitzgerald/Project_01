@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/15796-space-galaxy.jpg-e1d06d6befb8d94e61517a93e32ef4c5.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://15796-space-galaxy.jpg"
+dest_files=[ "res://.import/15796-space-galaxy.jpg-e1d06d6befb8d94e61517a93e32ef4c5.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
