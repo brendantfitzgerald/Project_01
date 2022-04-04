@@ -17,5 +17,6 @@ func _ready():
 
 
 func _on_IncomerSpawnTimer_timeout():
-	go.spawn_instance("Incomer", rand_range(0,480), -50)
+	if !global.gameOver:
+		go.spawn_instance("Incomer", rand_range(0,480), -50)
 	pass # Replace with function body.
