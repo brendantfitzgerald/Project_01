@@ -2,10 +2,8 @@ extends Node2D
 
 
 # Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var width = 0
-
+export var speed = 100
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	width = ($Sprite.texture.get_width() * $Sprite.scale.x * scale.x) / 2
@@ -14,11 +12,25 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	# Movement
+#	# Movement
+#	if Input.is_action_pressed("ui_right"):
+#		position.x += 5
+#	if Input.is_action_pressed("ui_left"): 
+#		position.x -= 5
+	var velocity = Vector2()  # The player's movement vector.
 	if Input.is_action_pressed("ui_right"):
-		position.x += 5
-	if Input.is_action_pressed("ui_left"): 
-		position.x -= 5
+		velocity.x += 1
+	if Input.is_action_pressed("ui_left"):
+		velocity.x -= 1
+	if Input.is_action_pressed("ui_down"):
+		velocity.y += 1
+	if Input.is_action_pressed("ui_up"):
+		velocity.y -= 1
+	if velocity.length() > 0:
+		velocity = velocity.normalized() * speed
+	else:
+		null
+	position += velocity * delta
 	# Boundaries
 	if position.x <= width:
 		position.x = 479 - width
@@ -27,7 +39,6 @@ func _process(delta):
 	# Weapon
 	if Input.is_action_just_pressed("fire_projectile"):
 		go.spawn_instance("Projectile", position.x, position.y)
-	pass
 
 
 func _on_AutoShotTimer_timeout():
